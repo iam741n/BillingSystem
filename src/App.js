@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import { API_URL } from './config';
+// import { ApiContext } from './Context/ApiContext';
+import Login from './Component/Login';
+
+import Dashboard from './Component/Dashboard';
+import UpdatePassword from './Component/UpdatePassword';
+import Expense from './Component/Expense';
+import AddItems from './Component/AddItems';
+import Stocks from './Component/Stocks';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  //  <div>
+  //   <Login/>
+  //  </div>
+   <Router>
+ <Routes>
+   <Route path="/" element={<Login />} />
+   <Route path="/Dashboard" element={<Dashboard />} />
+   <Route path="/UpdatePassword" element={<UpdatePassword />} />
+   <Route path="/Expense" element={<Expense />} />
+   <Route path="/AddItems" element={<AddItems />} />
+   <Route path="/Stocks" element={<Stocks />} />
+   
+   </Routes>
+   </Router>
   );
 }
 
