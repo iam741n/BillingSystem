@@ -9,6 +9,9 @@ import UpdatePassword from './Component/UpdatePassword';
 import Expense from './Component/Expense';
 import AddItems from './Component/AddItems';
 import Stocks from './Component/Stocks';
+import ViewExpense from './Component/ViewExpense';
+import CurrentdateExpense from './Component/CurrentdateExpense';
+import SpecificDateExpense from './Component/SpecificDateExpense';
 
 function App() {
   return (
@@ -23,7 +26,9 @@ function App() {
    <Route path="/Expense" element={<Expense />} />
    <Route path="/AddItems" element={<AddItems />} />
    <Route path="/Stocks" element={<Stocks />} />
-   
+   <Route path="/ViewExpense" element={<ViewExpense />} />
+   <Route path="/CurrentdateExpense" element={<CurrentdateExpense />} />
+   <Route path="/SpecificDateExpense" element={<SpecificDateExpense />} />
    </Routes>
    </Router>
   );

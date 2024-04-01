@@ -32,7 +32,7 @@ const Expense = () => {
 
   return (
     <div>
-         <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand href="#home">Billing System</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -42,10 +42,14 @@ const Expense = () => {
               <NavDropdown title="Settings" id="basic-nav-dropdown">
                 <Link to='/UpdatePassword' className="dropdown-item">Change Credentials</Link>
                 <Link to='/AddItems' className="dropdown-item">Add Items</Link>
-                <NavDropdown.Item>Action 3</NavDropdown.Item>
+                
               </NavDropdown>
               <Link to='/Stocks' className="nav-link">Stock</Link>
-              <Link to='/Expense' className="nav-link">Expense</Link>
+              <NavDropdown title="Expense" id="basic-nav-dropdown">
+                <Link to='/Expense' className="dropdown-item">Add Expense</Link>
+                <Link to='/ViewExpense' className="dropdown-item">View Expense</Link>
+                
+              </NavDropdown>
               <span className="nav-link">Daily Progress</span>
               <Link to='/' className="nav-link">Logout</Link>
             </Nav>
