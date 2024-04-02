@@ -14,6 +14,7 @@ const Dashboard = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [cartItem, setCartItem] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     fetchItemList();
@@ -120,6 +121,20 @@ const Dashboard = () => {
     </Document>
   );
 
+   // Filtering items based on search query
+   const filteredItems = itemList.filter(item =>
+    item.itmName.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  const handlePrintPDF = () => {
+    const pdfBlob = new Blob([<ReceiptDocument />], { type: 'application/pdf' });
+    const pdfUrl = URL.createObjectURL(pdfBlob);
+    const printWindow = window.open(pdfUrl);
+    printWindow.onload = () => {
+      printWindow.print();
+    };
+  };
+  
+
   return (
     <div>
       <Navbar bg="dark" variant="dark" expand="lg">
@@ -181,20 +196,23 @@ const Dashboard = () => {
 
           </table>
         </Col>
-        {/* Sidebar for Item List */}
         <Col md={4}>
-          <Container>
-            <Col md={{ span: 6, offset: 0 }} className="text-center">
-              <div style={{ border: '1px solid #ccc', padding: '10px' }}>
-              <h2 className="text-center">Item List</h2>
-{itemList.map((item) => (
-  <div key={item.itmId} onClick={() => handleItemClick(item)} style={{ cursor: 'pointer', marginBottom: '10px' }}>
-    <p>{item.itmName} {item.size}  {item.color}  {item.subject}</p>
-    {/* {item.size && <p>Size: {item.size}</p>}
-    {item.color && <p>Color: {item.color}</p>}
-    {item.subject && <p>Subject: {item.subject}</p>} */}
-  </div>
-))}
+            <Container>
+              <Col md={{ span: 6, offset: 0 }} className="text-center">
+                <div style={{ border: '1px solid #ccc', padding: '10px' }}>
+                  <h2 className="text-center">Item List</h2>
+                  <input
+                    type="text"
+                    placeholder="Search items"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="form-control mb-3"
+                  />
+                  {filteredItems.map((item) => (
+                    <div key={item.itmId} onClick={() => handleItemClick(item)} style={{ cursor: 'pointer', marginBottom: '10px' }}>
+                      <p>{item.itmName} {item.size}  {item.color}   {item.subject} {item.class}</p>
+                    </div>
+                  ))}
 
               </div>
             </Col>
@@ -241,8 +259,10 @@ const Dashboard = () => {
   {/* Buttons Row */}
   <Row className="justify-content-center mt-3">
     <Col md={4} className="d-flex justify-content-between">
+    <Button variant="secondary" onClick={handlePrintPDF}>Print PDF</Button>
       <Button variant="primary" onClick={generateReceipt}>Generate Receipt</Button>
       {successMessage && <Alert variant="success">{successMessage}</Alert>}
+    
     </Col>
   </Row>
 </Container>

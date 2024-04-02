@@ -11,17 +11,23 @@ const CurrentdateExpense = () => {
   useEffect(() => {
     const fetchExpenses = async () => {
       try {
-        const response = await axios.get(`http://${API_IP}/StationaryShop/api/Expense/GetExpenses`); // Adjust the API endpoint URL accordingly
-        setExpenses(response.data);
+        const response = await axios.get(`http://${API_IP}/StationaryShop/api/Expense/GetExpenses`);
+        if (Array.isArray(response.data)) {
+          setExpenses(response.data);
+        } else {
+          console.error('Response data is not an array:', response.data);
+        }
         setLoading(false);
       } catch (error) {
         console.error('Error fetching expenses:', error);
         setLoading(false);
       }
     };
-
+  
     fetchExpenses();
   }, []);
+  
+  
 
   return (
     <div>

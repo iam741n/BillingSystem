@@ -16,8 +16,16 @@ const SpecificDateExpense = () => {
   const fetchExpenses = async () => {
     try {
       const response = await axios.get(`http://${API_IP}/StationaryShop/api/Expense/GetExpenseByDate?date=${selectedDate.toISOString()}`);
-      setExpenses(response.data);
-      setLoading(false);
+      
+      // Check if response.data is an array
+      if (Array.isArray(response.data)) {
+        setExpenses(response.data);
+        setLoading(false);
+      } else {
+        console.error('Response data is not an array:', response.data);
+        setExpenses([]);
+        setLoading(false);
+      }
     } catch (error) {
       console.error('Error fetching expenses:', error);
       setLoading(false);

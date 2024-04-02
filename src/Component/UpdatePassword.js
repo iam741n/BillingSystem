@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Button,Nav, NavDropdown,Navbar, Form, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Button, Nav, NavDropdown, Navbar, Form, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { API_IP } from './Url';
 import axios from 'axios';
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import eye icons
 
 const UpdatePassword = () => {
   const [username, setUsername] = useState('');
@@ -10,6 +11,9 @@ const UpdatePassword = () => {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [showOldPassword, setShowOldPassword] = useState(false); // State for toggling old password visibility
+  const [showNewPassword, setShowNewPassword] = useState(false); // State for toggling new password visibility
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // State for toggling confirm password visibility
 
   const handleUpdatePassword = async () => {
     try {
@@ -34,7 +38,6 @@ const UpdatePassword = () => {
     }
   };
 
-  // Function to render alert based on error message
   const renderAlert = () => {
     if (errorMessage.startsWith('Success!')) {
       return <Alert variant="success">{errorMessage}</Alert>;
@@ -47,10 +50,9 @@ const UpdatePassword = () => {
     }
   };
 
-
   return (
-    <div >
-<Navbar bg="dark" variant="dark" expand="lg">
+    <div>
+     <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand href="#home">Billing System</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -75,6 +77,7 @@ const UpdatePassword = () => {
         </Container>
       </Navbar>
 
+
       <Container>
         <Row className="justify-content-center mt-5">
           <Col md={6}>
@@ -93,32 +96,47 @@ const UpdatePassword = () => {
 
               <Form.Group controlId="formOldPassword">
                 <Form.Label>Old Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Enter old password"
-                  value={oldPassword}
-                  onChange={(e) => setOldPassword(e.target.value)}
-                />
+                <div className="input-group">
+                  <Form.Control
+                    type={showOldPassword ? "text" : "password"}
+                    placeholder="Enter old password"
+                    value={oldPassword}
+                    onChange={(e) => setOldPassword(e.target.value)}
+                  />
+                  <Button variant="outline-secondary" onClick={() => setShowOldPassword(!showOldPassword)}>
+                    {showOldPassword ? <FaEyeSlash /> : <FaEye />}
+                  </Button>
+                </div>
               </Form.Group>
 
               <Form.Group controlId="formNewPassword">
                 <Form.Label>New Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Enter new password"
-                  value={newPassword}
-                  onChange={(e) => setNewPassword(e.target.value)}
-                />
+                <div className="input-group">
+                  <Form.Control
+                    type={showNewPassword ? "text" : "password"}
+                    placeholder="Enter new password"
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
+                  />
+                  <Button variant="outline-secondary" onClick={() => setShowNewPassword(!showNewPassword)}>
+                    {showNewPassword ? <FaEyeSlash /> : <FaEye />}
+                  </Button>
+                </div>
               </Form.Group>
 
               <Form.Group controlId="formConfirmPassword">
                 <Form.Label>Confirm Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Confirm new password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                />
+                <div className="input-group">
+                  <Form.Control
+                    type={showConfirmPassword ? "text" : "password"}
+                    placeholder="Confirm new password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                  />
+                  <Button variant="outline-secondary" onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
+                    {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+                  </Button>
+                </div>
               </Form.Group>
 
               <Button variant="primary" onClick={handleUpdatePassword}>
