@@ -31,7 +31,7 @@ const CurrentdateExpense = () => {
 
   return (
     <div>
-    <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand href="#home">Billing System</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -49,12 +49,18 @@ const CurrentdateExpense = () => {
                 <Link to='/ViewExpense' className="dropdown-item">View Expense</Link>
                 
               </NavDropdown>
-              <span className="nav-link">Daily Progress</span>
+              <NavDropdown title="Progress" id="basic-nav-dropdown">
+                <Link to='/DailyProgress' className="dropdown-item">Daily Progress</Link>
+                <Link to='/MultipledaysProgress' className="dropdown-item">Multiple days Progress</Link>
+                
+              </NavDropdown>
               <Link to='/' className="nav-link">Logout</Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
+
     <div className="container mt-4">
         
 

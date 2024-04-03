@@ -12,6 +12,8 @@ import Stocks from './Component/Stocks';
 import ViewExpense from './Component/ViewExpense';
 import CurrentdateExpense from './Component/CurrentdateExpense';
 import SpecificDateExpense from './Component/SpecificDateExpense';
+import DailyProgress from './Component/DailyProgress';
+import MultipledaysProgress from './Component/MultipledaysProgress';
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
    <Route path="/ViewExpense" element={<ViewExpense />} />
    <Route path="/CurrentdateExpense" element={<CurrentdateExpense />} />
    <Route path="/SpecificDateExpense" element={<SpecificDateExpense />} />
+   <Route path="/DailyProgress" element={<DailyProgress />} />
+   <Route path="/MultipledaysProgress" element={<MultipledaysProgress />} />
    </Routes>
    </Router>
   );
