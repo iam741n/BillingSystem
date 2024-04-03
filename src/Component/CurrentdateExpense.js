@@ -30,7 +30,7 @@ const CurrentdateExpense = () => {
   
 
   return (
-    <div>
+    <div style={{ backgroundImage: `url(${require('../assets/dash.jpg')})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand href="#home">Billing System</Navbar.Brand>
@@ -65,7 +65,7 @@ const CurrentdateExpense = () => {
         
 
 
-<h2 className="text-center mt-4 mb-4">Expenses for Today</h2>
+    <h1 className="text-center mt-4" style={{ color: 'White', fontFamily: 'Arial, sans-serif', fontSize: '2.5rem', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)', fontWeight: 'bold' }}>Expenses for Today</h1>
       {loading ? (
         <p>Loading...</p>
       ) : expenses.length === 0 ? (

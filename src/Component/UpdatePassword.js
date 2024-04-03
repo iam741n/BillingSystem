@@ -51,7 +51,7 @@ const UpdatePassword = () => {
   };
 
   return (
-    <div>
+    <div style={{ backgroundImage: `url(${require('../assets/dash.jpg')})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
        <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand href="#home">Billing System</Navbar.Brand>
@@ -85,11 +85,11 @@ const UpdatePassword = () => {
       <Container>
         <Row className="justify-content-center mt-5">
           <Col md={6}>
-            <h2 className="text-center mb-4">Update Password</h2>
+            <h1 className="text-center mt-4" style={{ color: 'White', fontFamily: 'Arial, sans-serif', fontSize: '2.5rem', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)', fontWeight: 'bold' }}>Update Password</h1>
             {errorMessage && renderAlert()}
             <Form>
               <Form.Group controlId="formUsername">
-                <Form.Label>Username</Form.Label>
+              <Form.Label style={{ color: 'white' }}>Username</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter username"
@@ -99,7 +99,7 @@ const UpdatePassword = () => {
               </Form.Group>
 
               <Form.Group controlId="formOldPassword">
-                <Form.Label>Old Password</Form.Label>
+              <Form.Label style={{ color: 'white' }}>Old Password</Form.Label>
                 <div className="input-group">
                   <Form.Control
                     type={showOldPassword ? "text" : "password"}
@@ -114,7 +114,7 @@ const UpdatePassword = () => {
               </Form.Group>
 
               <Form.Group controlId="formNewPassword">
-                <Form.Label>New Password</Form.Label>
+              <Form.Label style={{ color: 'white' }}>New Password</Form.Label>
                 <div className="input-group">
                   <Form.Control
                     type={showNewPassword ? "text" : "password"}
@@ -129,7 +129,7 @@ const UpdatePassword = () => {
               </Form.Group>
 
               <Form.Group controlId="formConfirmPassword">
-                <Form.Label>Confirm Password</Form.Label>
+              <Form.Label style={{ color: 'white' }}>Confirm Password</Form.Label>
                 <div className="input-group">
                   <Form.Control
                     type={showConfirmPassword ? "text" : "password"}

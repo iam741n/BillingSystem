@@ -31,7 +31,7 @@ const Expense = () => {
 
 
   return (
-    <div>
+    <div style={{ backgroundImage: `url(${require('../assets/dash.jpg')})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
        <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand href="#home">Billing System</Navbar.Brand>
@@ -65,12 +65,12 @@ const Expense = () => {
     <Container>
       <Row className="justify-content-center mt-5">
         <Col md={6}>
-          <h2 className="text-center mb-4">Add Expense</h2>
+        <h1 className="text-center mt-4" style={{ color: 'White', fontFamily: 'Arial, sans-serif', fontSize: '2.5rem', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)', fontWeight: 'bold' }}>Add Expense</h1>
           {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
           {successMessage && <Alert variant="success">{successMessage}</Alert>}
           <Form>
             <Form.Group controlId="formName">
-              <Form.Label>Expense Name</Form.Label>
+            <Form.Label style={{ color: 'white', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}>Expense Name</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter expense name"
@@ -80,7 +80,7 @@ const Expense = () => {
             </Form.Group>
 
             <Form.Group controlId="formAmount">
-              <Form.Label>Amount</Form.Label>
+            <Form.Label style={{ color: 'white', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}>Amount</Form.Label>
               <Form.Control
                 type="number"
                 placeholder="Enter amount"

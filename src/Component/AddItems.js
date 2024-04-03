@@ -42,7 +42,7 @@ const AddItems = () => {
   };
 
   return (
-    <div>
+    <div style={{ backgroundImage: `url(${require('../assets/dash.jpg')})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
   <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand href="#home">Billing System</Navbar.Brand>
@@ -75,72 +75,73 @@ const AddItems = () => {
     <Container>
       <Row className="justify-content-md-center">
         <Col xs={12} md={8}>
-          <h2 className="text-center mt-4 mb-4">Add Items</h2>
+        <h1 className="text-center mt-4" style={{ color: 'White', fontFamily: 'Arial, sans-serif', fontSize: '2.5rem', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)', fontWeight: 'bold' }}>Add Items</h1>
           {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
           {successMessage && <Alert variant="success">{successMessage}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Row>
               <Col sm={6}>
                 <Form.Group controlId="itmName">
-                  <Form.Label>Item Name</Form.Label>
+                <Form.Label style={{ color: 'white', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}>Item Name</Form.Label>
                   <Form.Control type="text" name="itmName" value={itemData.itmName} onChange={handleChange} required />
                 </Form.Group>
 
                 <Form.Group controlId="purchasePrice">
-                  <Form.Label>Purchase Price</Form.Label>
+                <Form.Label style={{ color: 'white', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}>Purchase Price</Form.Label>
                   <Form.Control type="number" name="purchasePrice" value={itemData.purchasePrice} onChange={handleChange} required />
                 </Form.Group>
 
                 <Form.Group controlId="quantity">
-                  <Form.Label>Quantity</Form.Label>
+                <Form.Label style={{ color: 'white', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}>Quantity</Form.Label>
                   <Form.Control type="number" name="quantity" value={itemData.quantity} onChange={handleChange} required />
                 </Form.Group>
 
                 <Form.Group controlId="size">
-                  <Form.Label>Size</Form.Label>
+                <Form.Label style={{ color: 'white', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}>Size</Form.Label>
                   <Form.Control type="text" name="size" value={itemData.size} onChange={handleChange} />
                 </Form.Group>
 
                 <Form.Group controlId="subject">
-                  <Form.Label>Subject</Form.Label>
+                <Form.Label style={{ color: 'white', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}>Subject</Form.Label>
+
                   <Form.Control type="text" name="subject" value={itemData.subject} onChange={handleChange} />
                 </Form.Group>
               </Col>
 
               <Col sm={6}>
                 <Form.Group controlId="sellingPrice">
-                  <Form.Label>Selling Price</Form.Label>
+                <Form.Label style={{ color: 'white', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}>Selling Price</Form.Label>
                   <Form.Control type="number" name="sellingPrice" value={itemData.sellingPrice} onChange={handleChange} required />
                 </Form.Group>
 
                 <Form.Group controlId="color">
-                  <Form.Label>Color</Form.Label>
+                <Form.Label style={{ color: 'white', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}>Color</Form.Label>
                   <Form.Control type="text" name="color" value={itemData.color} onChange={handleChange} />
                 </Form.Group>
 
                 <Form.Group controlId="class">
-                  <Form.Label>Class</Form.Label>
+                <Form.Label style={{ color: 'white', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}>Class</Form.Label>
                   <Form.Control type="text" name="class" value={itemData.class} onChange={handleChange} />
                 </Form.Group>
 
                 <Form.Group controlId="marchantName">
-                  <Form.Label>Merchant Name</Form.Label>
+                <Form.Label style={{ color: 'white', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}>Merchant Name</Form.Label>
                   <Form.Control type="text" name="marchantName" value={itemData.marchantName} onChange={handleChange} />
                 </Form.Group>
 
                 <Form.Group controlId="credit">
-                  <Form.Label>Credit</Form.Label>
+                <Form.Label style={{ color: 'white', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}>Credit</Form.Label>
                   <Form.Control type="number" name="credit" value={itemData.credit} onChange={handleChange} />
                 </Form.Group>
 
                 <Form.Group controlId="debit">
-                  <Form.Label>Debit</Form.Label>
+                <Form.Label style={{ color: 'white', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}>Debit</Form.Label>
                   <Form.Control type="number" name="debit" value={itemData.debit} onChange={handleChange} />
                 </Form.Group>
               </Col>
             </Row>
 
-            <Button variant="primary" type="submit" className="mt-2">
+            <Button variant="primary" type="submit" className="mt-2"  style={{backgroundImage: 'linear-gradient(to right, Orange, Orange)', border: 'none', color: 'white', fontWeight: 'bold' }}>
               Submit
             </Button>
           </Form>

@@ -28,7 +28,7 @@ function DailyProgress() {
   };
 
   return (
-    <div>
+    <div style={{ backgroundImage: `url(${require('../assets/dash.jpg')})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
        <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand href="#home">Billing System</Navbar.Brand>
@@ -58,7 +58,7 @@ function DailyProgress() {
         </Container>
       </Navbar>
     <div className="container mt-4">
-         <h1 className="text-center">Daily Progress</h1>
+    <h1 className="text-center mt-4" style={{ color: 'White', fontFamily: 'Arial, sans-serif', fontSize: '2.5rem', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)', fontWeight: 'bold' }}>Daily Progress</h1>
       <div className="card p-4" style={{ maxWidth: '800px', margin: '0 auto' }}>
         <div className="row mb-3">
           <label htmlFor="salesToday" className="col-sm-6 col-form-label">Sales of today</label>

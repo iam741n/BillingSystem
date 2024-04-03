@@ -93,7 +93,7 @@ function Stocks() {
   
 
   return (
-    <div>
+    <div style={{ backgroundImage: `url(${require('../assets/dash.jpg')})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
        <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand href="#home">Billing System</Navbar.Brand>
@@ -123,7 +123,7 @@ function Stocks() {
         </Container>
       </Navbar>
       <Container className="mt-4">
-        <h1 className="text-center mb-4">Stocks</h1>
+      <h1 className="text-center mt-4" style={{ color: 'White', fontFamily: 'Arial, sans-serif', fontSize: '2.5rem', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)', fontWeight: 'bold' }}>Stocks</h1>
         <table className="table">
           <thead className="thead-dark">
             <tr>

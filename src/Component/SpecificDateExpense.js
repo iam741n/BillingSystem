@@ -37,7 +37,8 @@ const SpecificDateExpense = () => {
   };
 
   return (
-    <div>
+   
+    <div style={{ backgroundImage: `url(${require('../assets/dash.jpg')})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
        <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand href="#home">Billing System</Navbar.Brand>
@@ -68,7 +69,7 @@ const SpecificDateExpense = () => {
       </Navbar>
 
       <Container className="mt-4">
-        <h2 className="text-center mt-4 mb-4">Expenses for Selected Date</h2>
+      <h1 className="text-center mt-4" style={{ color: 'White', fontFamily: 'Arial, sans-serif', fontSize: '2.5rem', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)', fontWeight: 'bold' }}>Expenses for Selected Date</h1>
         <div className="d-flex justify-content-center mb-4">
           <input
             type="date"

@@ -102,7 +102,7 @@ const Dashboard = () => {
   const ReceiptDocument = () => (
     <Document>
       <Page>
-        <Text style={{ fontSize: 20, marginBottom: 10 }}>Receipt</Text>
+        <Text style={{ fontSize: 20, marginBottom: 10, color: 'white' }}>Receipt</Text>
         <Text>Total Bill: {getTotalBill()}</Text>
         <Text>Discount: {discount}</Text>
         <Text>Pay Amount: {getPayAmount()}</Text>
@@ -136,7 +136,7 @@ const Dashboard = () => {
   
 
   return (
-    <div>
+    <div style={{ backgroundImage: `url(${require('../assets/dash.jpg')})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand href="#home">Billing System</Navbar.Brand>
@@ -171,7 +171,7 @@ const Dashboard = () => {
       <Row>
         {/* Item List */}
         <Col md={8}>
-          <h1 className="text-center">Dashboard</h1>
+          <h1 className="text-center mt-4" style={{ color: 'White', fontFamily: 'Arial, sans-serif', fontSize: '2.5rem', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)', fontWeight: 'bold' }}>Dashboard</h1>
           <table className="table">
             <thead>
             <tr>
@@ -204,7 +204,7 @@ const Dashboard = () => {
             <Container>
               <Col md={{ span: 6, offset: 0 }} className="text-center">
                 <div style={{ border: '1px solid #ccc', padding: '10px' }}>
-                  <h2 className="text-center">Item List</h2>
+                  <h2 className="text-center mt-4" style={{ color: 'Black', fontFamily: 'Arial, sans-serif', fontSize: '2.5rem', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)', fontWeight: 'bold' }}>Item List</h2>
                   <input
                     type="text"
                     placeholder="Search items"
@@ -214,7 +214,8 @@ const Dashboard = () => {
                   />
                   {filteredItems.map((item) => (
                     <div key={item.itmId} onClick={() => handleItemClick(item)} style={{ cursor: 'pointer', marginBottom: '10px' }}>
-                      <p>{item.itmName} {item.size}  {item.color}   {item.subject} {item.class}</p>
+                     <p style={{ color: 'black', fontFamily: 'Arial, sans-serif',  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}>{item.itmName} {item.size} {item.color} {item.subject} {item.class}</p>
+
                     </div>
                   ))}
 
@@ -249,14 +250,14 @@ const Dashboard = () => {
   <Row>
     <Col md={{ span: 6, offset: 0 }} className="text-center">
       <div style={{ border: '1px solid #ccc', padding: '10px' }}>
-        <h3>Total Bill: {getTotalBill()}</h3>
+        <h3 style={{ color: 'white' }}>Total Bill: {getTotalBill()}</h3>
         <Form.Group as={Row} className="mb-3">
-          <Form.Label column md="auto" className="font-weight-bold">Discount:</Form.Label>
+          <Form.Label column md="auto" className="font-weight-bold" style={{ color: 'white' }}>Discount:</Form.Label>
           <Col>
             <Form.Control type="number" value={discount} onChange={handleDiscountChange} />
           </Col>
         </Form.Group>
-        <h3>Pay Amount: {getPayAmount()}</h3>
+        <h3 style={{ color: 'white' }}>Pay Amount: {getPayAmount()}</h3>
       </div>
     </Col>
   </Row>
@@ -264,7 +265,7 @@ const Dashboard = () => {
   <Row className="justify-content-center mt-3">
     <Col md={4} className="d-flex justify-content-between">
     <Button variant="secondary" onClick={handlePrintPDF}>Print PDF</Button>
-      <Button variant="primary" onClick={generateReceipt}>Generate Receipt</Button>
+    <Button variant="primary" onClick={generateReceipt} style={{backgroundImage: 'linear-gradient(to right, Orange, Orange)', border: 'none', color: 'white', fontWeight: 'bold' }}>Generate Receipt</Button>
       {successMessage && <Alert variant="success">{successMessage}</Alert>}
     
     </Col>
