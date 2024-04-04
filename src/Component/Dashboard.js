@@ -15,6 +15,7 @@ const Dashboard = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [cartItem, setCartItem] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [showClearConfirmation, setShowClearConfirmation] = useState(false);
 
   useEffect(() => {
     fetchItemList();
@@ -133,6 +134,20 @@ const Dashboard = () => {
       printWindow.print();
     };
   };
+
+  const handleClearList = () => {
+    setShowClearConfirmation(true);
+  };
+
+  const handleConfirmClearList = () => {
+    setCart([]);
+    setShowClearConfirmation(false);
+  };
+
+  const handleCancelClearList = () => {
+    setShowClearConfirmation(false);
+  };
+
   
 
   return (
@@ -264,6 +279,7 @@ const Dashboard = () => {
   {/* Buttons Row */}
   <Row className="justify-content-center mt-3">
     <Col md={4} className="d-flex justify-content-between">
+    <Button variant="danger" onClick={handleClearList}>Clear List</Button>
     <Button variant="secondary" onClick={handlePrintPDF}>Print PDF</Button>
     <Button variant="primary" onClick={generateReceipt} style={{backgroundImage: 'linear-gradient(to right, Orange, Orange)', border: 'none', color: 'white', fontWeight: 'bold' }}>Generate Receipt</Button>
       {successMessage && <Alert variant="success">{successMessage}</Alert>}
@@ -285,6 +301,18 @@ loading ? 'Loading document...' : 'Download PDF'
 </Col>
 </Row>
 </Container>
+
+      {/* Clear Confirmation Modal */}
+      <Modal show={showClearConfirmation} onHide={handleCancelClearList}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirmation</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure you want to discard all the items?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCancelClearList}>No</Button>
+          <Button variant="danger" onClick={handleConfirmClearList}>Yes</Button>
+        </Modal.Footer>
+      </Modal>
 
 
       </div>
